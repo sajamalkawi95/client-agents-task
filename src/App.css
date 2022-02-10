@@ -5,8 +5,11 @@
 
 
 
-/* ////////////////////////////////// */
 /*
+===========
+login component
+===========
+*/
 .login {
   background-image:url('https://www.usehero.com/wp-content/uploads/2019/08/Screen-Shot-2020-03-16-at-1.42.01-PM-1.png');
   background-position:center;
@@ -16,9 +19,6 @@
   font-family: 'Dancing Script', cursive!important;
 }
 
-.container {
-    padding: 207px;
-}
 ::placeholder  {
     color: #ffffff!important;
     opacity: 1;
@@ -290,3 +290,170 @@ input[type="checkbox"]:checked + label:after {
   top: -10px;
   right: 0;
 }
+
+
+
+/*
+===========
+seller list
+===========
+
+ */
+
+.filter-result .job-box {
+-webkit-box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
+ box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
+padding: 0 10px;
+}
+
+ul {
+list-style: none;
+}
+
+.list-disk li {
+list-style: none;
+margin-bottom:  2px;
+}
+
+.list-disk li:last-child {
+margin-bottom: 0;
+}
+.job-box .img-holder img {
+  border-radius: 50%;
+  opacity: 0.9;
+  width:50px;
+}
+.job-box .img-holder {
+height: 50px;
+width: 50px;
+background-color: #ed6a5e;
+font-family: "Open Sans", sans-serif;
+color: #fff;
+font-size: 22px;
+font-weight: 700;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-pack: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+-webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+border-radius: 65px;
+}
+
+.career-title {
+background-color: #4e63d7;
+color: #fff;
+padding: 5px;
+text-align: center;
+border-radius: 10px 10px 0 0;
+background-image: -webkit-gradient(linear, left top, right top, from(rgba(78, 99, 215, 0.9)), to(#5a85dd));
+background-image: linear-gradient(to right, rgba(78, 99, 215, 0.9) 0%, #5a85dd 100%);
+}
+
+.job-overview {
+-webkit-box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
+ box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
+border-radius: 10px;
+}
+
+@media (min-width: 992px) {
+.job-overview {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 70px;
+}
+}
+
+.job-overview .job-detail ul {
+margin-bottom: 28px;
+}
+
+.job-overview .job-detail ul li {
+opacity: 0.75;
+font-weight: 600;
+margin-bottom: 15px;
+}
+
+.job-overview .job-detail ul li i {
+font-size: 20px;
+position: relative;
+top: 1px;
+}
+
+.job-overview .overview-bottom,
+.job-overview .overview-top {
+padding: 5px;
+}
+
+.job-content ul li {
+font-weight: 600;
+opacity: 0.75;
+border-bottom: 1px solid #ccc;
+padding: 5px 5px;
+}
+
+@media (min-width: 768px) {
+.job-content ul li {
+  border-bottom: 0;
+  padding: 0;
+}
+}
+
+.job-content ul li i {
+font-size: 20px;
+position: relative;
+top: 1px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+/*
+================
+search bar
+================
+*/
+
+.search {
+  width: 50%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 50%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #171817;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 2%;
+  left: 30%;
+ }

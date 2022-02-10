@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import axios from 'axios';
 import { Navigate } from "react-router-dom";
 
@@ -9,7 +10,7 @@ class Login extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className='login'>
                 <div className={`form-block-wrapper form-block-wrapper--is-login`} ></div>
                 <section className={`form-block form-block--is-login`}>
                     <header className="form-block__header">
@@ -26,7 +27,8 @@ class LoginForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            redirect: "-5"
+            redirect: "-5",
+            userId: ""
         }
     }
     auth(e) {
@@ -36,17 +38,19 @@ class LoginForm extends React.Component {
             pass: e.target.password.value
         };
         console.log(body);
-        axios.post(`http://localhost:4040/auth`, body).then(axiosResponse => {
-            this.setState({ redirect: axiosResponse.data.type })
+        axios.post(`${process.env.REACT_APP_SEVER_PORT}/auth`, body).then(axiosResponse => {
+            this.setState({ redirect: axiosResponse.data.type, userId: axiosResponse.data.id })
         }).catch(error => alert(error));
     }
     render() {
         switch (this.state.redirect) {
 
             case "1":
+                window.sessionStorage.setItem("idBuyer", this.state.userId);
                 return <Navigate to='/Buyer' />
 
             case "2":
+                window.sessionStorage.setItem("idSeller", this.state.userId);
                 return <Navigate to='/Seller' />
             default:
                 return (

@@ -9,20 +9,10 @@ export default class Home extends Component {
         }
 
     }
-    changeUser = () => {
-        alert("hi")
-        this.setState({
-            user: true
-        })
-    }
+
     render() {
-        if (this.state.user) {
-            // not logged in so redirect to login page with the return url
-            return <Navigate to='/login' />
-        }
-        return (
-            <button onClick={() => this.changeUser()}>click</button>
-        )
+        // not logged in so redirect to login page with the return url
+        return <Navigate to='/login' />
 
     }
 }
