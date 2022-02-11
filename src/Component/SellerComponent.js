@@ -25,20 +25,26 @@ export default class SellerComponent extends Component {
     }
     acceptAppointment = () => {
         setTimeout(() => {
+
             axios.get(`${process.env.REACT_APP_SEVER_PORT}/updateState/${this.state.appointmentid}?accepted=true`).then(axiosResponse => {
                 console.log(axiosResponse.data)
                 alert("Appointment Accepted")
 
             }).catch(error => alert(error));
+            window.location.reload()
+
         }, 2000);
 
     }
     rejectAppointment = () => {
         setTimeout(() => {
+
             axios.get(`${process.env.REACT_APP_SEVER_PORT}/updateState/${this.state.appointmentid}?accepted=false`).then(axiosResponse => {
                 console.log(axiosResponse.data)
                 alert("Appointment rejected")
             }).catch(error => alert(error));
+
+            window.location.reload()
         }, 2000);
 
     }
@@ -69,7 +75,7 @@ export default class SellerComponent extends Component {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <AppointmentsList allAppointment={this.state.allAppointment} setAppointment={this.setAppointment} accseptAppointment={this.accseptAppointment} rejectAppointment={this.rejectAppointment} />
+                                                <AppointmentsList allAppointment={this.state.allAppointment} setAppointment={this.setAppointment} acceptAppointment={this.acceptAppointment} rejectAppointment={this.rejectAppointment} />
                                             </tbody>
                                         </table> :
 

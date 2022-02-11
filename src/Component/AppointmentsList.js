@@ -22,12 +22,12 @@ export default class AppointmentsList extends Component {
                                     </td> :
                                     appointment.state == 'accepted' ?
                                         <td>
-                                            <Badge class="badge" bg="danger" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment() }}>Reject</Badge>
+                                            <Badge class="badge" bg="danger" onClick={() => { this.props.setAppointment(appointment._id); this.props.rejectAppointment() }}>Reject</Badge>
                                         </td> :
 
                                         <td>
                                             <Badge class="badge" bg="success" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment(); }}>Accept</Badge>
-                                            <Badge class="badge" bg="danger" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment(); }}>Reject</Badge>
+                                            <Badge class="badge" bg="danger" onClick={() => { this.props.setAppointment(appointment._id); this.props.rejectAppointment(); }}>Reject</Badge>
                                         </td>
                             }
 
