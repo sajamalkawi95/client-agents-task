@@ -38,10 +38,13 @@ class SellerList extends React.Component {
     render() {
         return (
             <>
-
+                {/*
                 {
                     this.props.sellers.length > 0 ?
                         this.props.sellers.map(seller =>
+
+
+
 
                             <div className="filter-result">
                                 <div className="job-box d-md-flex align-items-center justify-content-between mb-30">
@@ -88,8 +91,30 @@ class SellerList extends React.Component {
 
                             </div>) :
                         <h1> no sellers Avilable</h1>
-                }
+                } */}
+                {
+                    this.props.sellers.length > 0 ?
+                        this.props.sellers.map(seller =>
+                            <><FormModal
+                                show={this.state.displayAddModal}
+                                handelDisplayModal={this.handelDisplayModal}
+                                handelSubmitForm={this.createAppointment}
+                                sellerId={this.state.sellerID} /><tr>
 
+                                    <td>
+                                        <img src={seller.imageUrl} />
+                                    </td>
+                                    <td> {seller.fullName}</td>
+                                    <td>{seller.userEmail} </td>
+
+                                    <td>
+                                        <Badge bg="info" onClick={() => this.handelDisplayModal(seller._id)}>Book Appointment</Badge>
+                                    </td>
+                                </tr></>)
+                        :
+                        <h1> no sellers Avilable</h1>
+
+                }
             </>
         );
     }

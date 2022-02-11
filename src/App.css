@@ -1,9 +1,45 @@
 .App {
   text-align: center;
 }
-
-
-
+/*
+===========
+Header+ Footer
+===========
+*/
+a.logout {
+  width: 100px;
+  padding: 10px;
+  position: fixed;
+  color: white;
+  top: 0;
+  left: 90%;
+  z-index: 5;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: cursive;
+}
+#header {
+  height: 70px;
+  position: sticky;
+  width: 100%;
+  background: #ed6a5e;
+  top: 0;
+  box-shadow: 0px 10px 24px 0px rgba(0,0,0,0.25);
+  opacity: .95;
+}
+#content {
+  margin-top: 70px;
+  padding: 16px;
+}
+#footer {
+  height: 50px;
+  background: #ed6a5e;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  line-height: 50px;
+}
 
 /*
 ===========
@@ -11,6 +47,7 @@ login component
 ===========
 */
 .login {
+  padding: 94px;
   background-image:url('https://www.usehero.com/wp-content/uploads/2019/08/Screen-Shot-2020-03-16-at-1.42.01-PM-1.png');
   background-position:center;
   background-size:cover;
@@ -290,127 +327,45 @@ input[type="checkbox"]:checked + label:after {
   top: -10px;
   right: 0;
 }
-
-
-
-/*
-===========
-seller list
-===========
-
- */
-
-.filter-result .job-box {
--webkit-box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
- box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
-padding: 0 10px;
+.table2 {
+  margin-bottom: 0;
+  color: #6c7293;
+  width: 100%;
 }
-
-ul {
-list-style: none;
+.card{
+  margin: 20px;
 }
-
-.list-disk li {
-list-style: none;
-margin-bottom:  2px;
+.table2 thead th {
+  border-top: 0;
+  border-bottom-width: 1px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 500;
 }
-
-.list-disk li:last-child {
-margin-bottom: 0;
+.table2 thead th i {
+  margin-left: 0.325rem;
 }
-.job-box .img-holder img {
-  border-radius: 50%;
-  opacity: 0.9;
-  width:50px;
+.table2 th, .table2 td {
+  vertical-align: middle;
+  font-size: 0.875rem;
+  line-height: 1;
 }
-.job-box .img-holder {
-height: 50px;
-width: 50px;
-background-color: #ed6a5e;
-font-family: "Open Sans", sans-serif;
-color: #fff;
-font-size: 22px;
-font-weight: 700;
-display: -webkit-box;
-display: -ms-flexbox;
-display: flex;
--webkit-box-pack: center;
-    -ms-flex-pack: center;
-        justify-content: center;
--webkit-box-align: center;
-    -ms-flex-align: center;
-        align-items: center;
-border-radius: 65px;
+.table2 th img, .table2 td img {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
 }
-
-.career-title {
-background-color: #4e63d7;
-color: #fff;
-padding: 5px;
-text-align: center;
-border-radius: 10px 10px 0 0;
-background-image: -webkit-gradient(linear, left top, right top, from(rgba(78, 99, 215, 0.9)), to(#5a85dd));
-background-image: linear-gradient(to right, rgba(78, 99, 215, 0.9) 0%, #5a85dd 100%);
+.table2 th .badge2, .table2 td .badge2 {
+  margin-bottom: 0;
 }
-
-.job-overview {
--webkit-box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
- box-shadow: 0 0 35px 0 rgba(130, 130, 130, 0.2);
-border-radius: 10px;
+.table2.table-borderless {
+  border: none;
 }
-
-@media (min-width: 992px) {
-.job-overview {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 70px;
+.table2.table-borderless tr, .table2.table-borderless td, .table2.table-borderless th {
+  border: none;
 }
+.badge{
+cursor: pointer;
 }
-
-.job-overview .job-detail ul {
-margin-bottom: 28px;
-}
-
-.job-overview .job-detail ul li {
-opacity: 0.75;
-font-weight: 600;
-margin-bottom: 15px;
-}
-
-.job-overview .job-detail ul li i {
-font-size: 20px;
-position: relative;
-top: 1px;
-}
-
-.job-overview .overview-bottom,
-.job-overview .overview-top {
-padding: 5px;
-}
-
-.job-content ul li {
-font-weight: 600;
-opacity: 0.75;
-border-bottom: 1px solid #ccc;
-padding: 5px 5px;
-}
-
-@media (min-width: 768px) {
-.job-content ul li {
-  border-bottom: 0;
-  padding: 0;
-}
-}
-
-.job-content ul li i {
-font-size: 20px;
-position: relative;
-top: 1px;
-}
-.mb-30 {
-  margin-bottom: 30px;
-}
-
 /*
 ================
 search bar
@@ -418,18 +373,20 @@ search bar
 */
 
 .search {
-  width: 50%;
-  position: relative;
-  display: flex;
+  width: 150%;
+    top: -83px;
+    left: -130px;
+    position: relative;
+    display: flex;
 }
 
 .searchTerm {
   width: 50%;
-  border: 3px solid #00B4CC;
-  border-right: none;
-  padding: 5px;
-  height: 36px;
-  border-radius: 5px 0 0 5px;
+  border: 3px solid wheat;
+  background-color: #ed6a5e94;
+   padding: 5px;
+  height: 40px;
+  border-radius: 25px ;
   outline: none;
   color: #171817;
 }
@@ -439,15 +396,15 @@ search bar
 }
 
 .searchButton {
-  width: 40px;
-  height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
+  width: 70px;
+  height: 40px;
+  border: 3px solid wheat;
+  background: #fff;
   text-align: center;
-  color: #fff;
+  color: #ed6a5e;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 15px;
 }
 
 /*Resize the wrap to see the search bar change!*/

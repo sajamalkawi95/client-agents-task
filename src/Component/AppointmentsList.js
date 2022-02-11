@@ -1,54 +1,49 @@
 import React, { Component } from 'react'
 import { Badge } from 'react-bootstrap'
+import { Button } from '../index';
 
 export default class AppointmentsList extends Component {
     render() {
         return (
             <>
-                <h1>Hi</h1>
+
+
                 {
-                    this.props.allAppointment.length > 0 ?
-                        this.props.allAppointment.map(appointment =>
+                    this.props.allAppointment.map(appointment =>
+                        <tr>
+                            <td>  {appointment.buyerName} </td>
 
-                            <div className="filter-result">
-                                <div className="job-box d-md-flex align-items-center justify-content-between mb-30">
-                                    <div className="job-left my-4 d-md-flex align-items-center flex-wrap">
-                                        <div className="job-content">
-                                            <ul className="d-md-flex flex-wrap text-capitalize ff-open-sans ">
-                                                <li className="  me-2 ms-5  ">
-                                                    Date                                                </li>
-                                                <li className="  me-5 ms-2  ">
-                                                    {appointment.appointmentDate}
-                                                </li>
-                                                <li className="  me-2 ms-5  ">
-                                                    Buyer Name
-                                                </li>
-                                                <li className="  me-5 ms-2  ">
-                                                    {appointment.buyerName}
-                                                </li>
-                                                <li className="  me-3 ms-3">
-                                                    <div className="job-right my-4 flex-shrink-0">
-                                                        <Badge bg="info" style={{ padding: "10px", cursor: "pointer" }} onClick={() => { this.props.setAppointment(appointment._id); this.props.accseptAppointment() }}>Accsept</Badge>
-                                                    </div>
-                                                </li>
-                                                <li className="  me-3 ms-3">
-                                                    <div className="job-right my-4 flex-shrink-0">
-                                                        <Badge bg="info" style={{ padding: "10px", cursor: "pointer" }} onClick={() => { this.props.setAppointment(appointment._id); this.props.rejectAppointment() }}>Reject</Badge>
-                                                    </div>
-                                                </li>
+                            <td> {appointment.appointmentDate}</td>
 
-                                            </ul>
-                                        </div>
-                                    </div>
+                            {
+                                appointment.state == 'rejected' ?
+                                    <td>
+                                        <Badge class="badge" bg="success" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment() }}>Accept</Badge>
+                                    </td> :
+                                    appointment.state == 'accepted' ?
+                                        <td>
+                                            <Badge class="badge" bg="danger" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment() }}>Reject</Badge>
+                                        </td> :
+
+                                        <td>
+                                            <Badge class="badge" bg="success" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment(); }}>Accept</Badge>
+                                            <Badge class="badge" bg="danger" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment(); }}>Reject</Badge>
+                                        </td>
+                            }
 
 
 
-                                </div>
 
 
-                            </div>) :
-                        <h1> no sellers Avilable</h1>
+
+
+                        </tr >)
+
+
+
                 }
+
+
 
             </>
         )
