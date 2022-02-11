@@ -10,7 +10,7 @@ export default class AppointmentsList extends Component {
 
                 {
                     this.props.allAppointment.map(appointment =>
-                        <tr>
+                        <tr key={appointment._id}>
                             <td>  {appointment.buyerName} </td>
 
                             <td> {appointment.appointmentDate}</td>
@@ -18,16 +18,16 @@ export default class AppointmentsList extends Component {
                             {
                                 appointment.state == 'rejected' ?
                                     <td>
-                                        <Badge class="badge" bg="success" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment() }}>Accept</Badge>
+                                        <Badge className="badge" bg="success" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment() }}>Accept</Badge>
                                     </td> :
                                     appointment.state == 'accepted' ?
                                         <td>
-                                            <Badge class="badge" bg="danger" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment() }}>Reject</Badge>
+                                            <Badge className="badge" bg="danger" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment() }}>Reject</Badge>
                                         </td> :
 
                                         <td>
-                                            <Badge class="badge" bg="success" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment(); }}>Accept</Badge>
-                                            <Badge class="badge" bg="danger" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment(); }}>Reject</Badge>
+                                            <Badge className="badge" bg="success" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment(); }}>Accept</Badge>
+                                            <Badge className="badge" bg="danger" onClick={() => { this.props.setAppointment(appointment._id); this.props.acceptAppointment(); }}>Reject</Badge>
                                         </td>
                             }
 
