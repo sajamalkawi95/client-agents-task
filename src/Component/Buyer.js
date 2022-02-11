@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import axios from 'axios';
+import { Badge } from 'react-bootstrap';
 import SellerList from './SellerList';
 class Buyer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            allSellers: []
+            allSellers: [],
+            allAppointment: []
         }
     }
     componentDidMount = () => {
@@ -17,40 +20,57 @@ class Buyer extends React.Component {
         }).catch(error => alert(error));
     }
     getSomeSellers = (e) => {
-        e.preventDefault();
-
-        axios.get(`${process.env.REACT_APP_SEVER_PORT}/getSomeSellers?search=${e.target.search.value}`,).then(axiosResponse => {
+        console.log(e);
+        axios.get(`${process.env.REACT_APP_SEVER_PORT}/getSomeSellers?search=${e.target.value}`,).then(axiosResponse => {
             this.setState({ allSellers: axiosResponse.data })
         }).catch(error => alert(error));
     }
+
     render() {
         return (
-            <div>
-                <h1>Buyer Dashbord</h1>
-                <div className="container" style={{ padding: 0 }}>
-                    <div className='row' >
-                        <div class="wrap">
-                            <form className="search" onSubmit={(e) => this.getSomeSellers(e)}>
-                                <input type="text" class="searchTerm" id='search' placeholder="Search for Seller name" />
-                                <button type="submit" class="searchButton">
-                                    Search
-                                </button>
-                            </form>
+
+
+
+            <div className='row' style={{ width: "100%" }}>
+                <div className="col-lg-6   mx-auto stretch-card">
+                    <div className="card">
+                        <div className="card-body">
+                            <h4 className="card-title">Sellers List </h4>
+                            <div className='row'>
+                                <div class="wrap">
+                                    <form className="search" onSubmit={(e) => this.getSomeSellers(e)}>
+                                        <input type="text" onChange={(e) => this.getSomeSellers(e)} class="searchTerm" id='search' placeholder="Search for Seller name" />
+
+                                    </form>
+                                </div>
+                                <Link className='logout' to='/'> Logout </Link>
+                            </div>
+                            <div className="table-responsive">
+                                {this.state.allSellers.length > 0 ?
+
+                                    <table className="table2 table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>  Image</th>
+                                                <th>  Name</th>
+                                                <th>Email</th>
+
+                                                <th>Book Appointment </th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <SellerList sellers={this.state.allSellers} />
+                                        </tbody>
+                                    </table> :
+
+                                    <Badge bg="info">  No Sellers Avilable</Badge>}
+                            </div>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className='col-md-5'>
-                            <SellerList sellers={this.state.allSellers} />
-
-                        </div>
-                        <div className='col-md-5'>
-                            <SellerList sellers={this.state.allSellers} />
-
-                        </div>
-                    </div>
-
                 </div>
-            </div >
+
+            </div>
         )
     }
 
